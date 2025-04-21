@@ -21,6 +21,26 @@ value_mapping = {
     "Tuition_fees_up_to_date": {"Yes": 1, "No": 0},
     "Daytime_evening_attendance": {"Daytime": 1, "Evening": 0},
     "Gender": {"Male": 1, "Female": 0},
+    "application_mode": {
+        "1st phase - general contingent": 1,
+        "Ordinance No. 612/93": 2,
+        "1st phase - special contingent (Azores Island)": 5,
+        "Holders of other higher courses": 7,
+        "Ordinance No. 854-B/99": 10,
+        "International student (bachelor)": 15,
+        "1st phase - special contingent (Madeira Island)": 16,
+        "2nd phase - general contingent": 17,
+        "3rd phase - general contingent": 18,
+        "Ordinance No. 533-A/99, item b2) (Different Plan)": 26,
+        "Ordinance No. 533-A/99, item b3 (Other Institution)": 27,
+        "Over 23 years old": 39,
+        "Transfer": 42,
+        "Change of course": 43,
+        "Technological specialization diploma holders": 44,
+        "Change of institution/course": 51,
+        "Short cycle diploma holders": 53,
+        "Change of institution/course (International)": 57
+    },
     "Displaced": {"Yes": 1, "No": 0},
 }
 
@@ -76,13 +96,13 @@ with col3:
 
 col1, col2, col3 = st.columns(3)
 with col1:
-    st.number_input("Application mode", min_value=0, max_value=2,
-                    value=1, step=1, key="Application_mode")
-    data['Application_mode'] = [st.session_state.Application_mode]
-with col2:
     st.number_input("Debtor", min_value=0, max_value=1,
                     value=0, step=1, key="Debtor")
     data['Debtor'] = [st.session_state.Debtor]
+with col2:
+    st.selectbox(
+        "Displaced", options=feature_options["Displaced"], index=0, key="Displaced")
+    data['Displaced'] = [value_mapping["Displaced"][st.session_state.Displaced]]
 with col3:
     st.selectbox("Scholarship holder",
                  options=feature_options["Scholarship_holder"], index=0, key="Scholarship_holder")
@@ -105,12 +125,18 @@ with col3:
         "Gender", options=feature_options["Gender"], index=0, key="Gender")
     data['Gender'] = [value_mapping["Gender"][st.session_state.Gender]]
 
-st.selectbox(
-    "Displaced", options=feature_options["Displaced"], index=0, key="Displaced")
-data['Displaced'] = [value_mapping["Displaced"][st.session_state.Displaced]]
+display_options = list(value_mapping['application_mode'].keys())
+default_index = display_options.index("1st phase - general contingent")
+selected = st.selectbox("Application mode",
+                        options=display_options, index=default_index, key="Application_mode")
+data['Application_mode'] = value_mapping['application_mode'][selected]
+
+st.divider()
 
 with st.expander("View the Raw Data"):
     st.dataframe(data=data, width=800, height=10)
+
+st.divider()
 
 if st.button('Predict'):
     new_data = dp.preprocess(data)
