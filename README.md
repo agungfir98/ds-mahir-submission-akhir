@@ -27,6 +27,7 @@ cd ds-mahir-submission-akhir
 **Setup virtual Environtment (opsional)**
 ```bash
 python -m venv ./venv
+source ./venv/Script/activate
 ```
 ### setup
 ```bash
@@ -38,7 +39,12 @@ Link: [Tableau Public](https://public.tableau.com/views/student-performance_1744
 Dashboard mencakup faktor yang mungkin dapat menyebabkan siswa untuk drop out seperti apakah siswa adalah penerima beasiswa, apakah siswa berhutang, apakah siswa telah membayar biaya kuliah, dan nilai siswa semester lalu
 
 ## Menjalankan Sistem Machine Learning
-Link: [Streamlit cloud]()
+Link: [Streamlit cloud](https://agungfir98-ds-mahir-submission-akhir-prediction-app.streamlit.app/)
+
+run on local:
+```shell
+streamlit run predict_app.py
+```
 
 ## Conclusion
 
@@ -48,4 +54,4 @@ Beberapa hal mempengaruhi kerentanan siswa untuk drop out, mulai dari kondisi fi
 
 - Memberi konsultasi terhadap siswa yang memiliki masalah biaya.
 - Mengevaluasi biaya perkuliahan
-- mengevaluasi tentang banyaknya siswa yang memiliki nilai rendah
+- mengevaluasi tentang banyaknya siswa yang memiliki nilai rendah dan tidak lolos kelas pada semester 1
