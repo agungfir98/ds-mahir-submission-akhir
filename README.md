@@ -10,7 +10,7 @@ Jaya Jaya Institut merupakan salah satu institusi pendidikan perguruan yang tela
 Jaya Jaya Institut ingin mendeteksi secepat mungkin siswa yang mungkin akan melakukan dropout sehingga dapat diberi bimbingan khusus.
 
 ### Cakupan Proyek
-Proyek ini berupaya mengidentifikasi faktor apa saja yang dapat membuat siswa pada Jaya Jaya Institute melakukan drop out, dan membuat model machine learning untuk memprediksi siswa yang mungkin akan melakukan drop out.
+Proyek ini berupaya mengidentifikasi faktor apa saja yang dapat membuat siswa pada Jaya Jaya Institute melakukan drop out dengan melihat hubungan data yang dianggap relevan seperti hubungan antara dropout berdasarkan siswa dengan scholarship(beasiswa), siswa yang memliki hutang, siswa yang telah membayar kuliah, nilai semester lalu dan nilai admisi. Lalu proyek ini juga membuat model machine learning guna memprediksi siswa yang mungkin akan melakukan drop out.
 
 ### Persiapan
 
@@ -48,10 +48,11 @@ streamlit run predict_app.py
 
 ## Conclusion
 
-Beberapa hal mempengaruhi kerentanan siswa untuk drop out, mulai dari kondisi finansial siswa dan juga nilai siswa pada semester lalu.
+Beberapa hal mempengaruhi kerentanan siswa untuk melakukan drop out, mulai dari kondisi finansial siswa. siswa yang tidak memiliki beasiswa cenderung untuk dropout, begitu juga  dan juga nilai siswa pada semester lalu.
 
 ### Rekomendasi Action Items (Optional)
 
 - Memberi konsultasi terhadap siswa yang memiliki masalah biaya.
 - Mengevaluasi biaya perkuliahan
 - mengevaluasi tentang banyaknya siswa yang memiliki nilai rendah dan tidak lolos kelas pada semester 1
+- memberi beasiswa terhadap siswa yang layak seperti yang terkendala biaya dan berprestasi
